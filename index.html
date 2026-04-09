@@ -462,13 +462,57 @@ footer{
 .footer-stamp{font-size:12px;color:var(--text3);text-align:right;line-height:1.7;}
 
 /* ── RESPONSIVE ── */
+
+/* Large screens / 16:10 — constrain max width so content doesn't stretch */
+@media(min-width:1200px){
+  nav{padding:0 48px;}
+  .hero{padding:110px 80px 80px;max-width:1280px;margin:0 auto;}
+  .section{padding:80px 80px;max-width:1280px;margin:0 auto;}
+  footer{max-width:1280px;margin:0 auto;}
+  body > nav{max-width:none;}
+}
+
+@media(max-width:1200px){
+  .hero{padding:100px 48px 64px;}
+  .section{padding:72px 48px;}
+  footer{padding:52px 48px;}
+  nav{padding:0 32px;}
+}
+
 @media(max-width:900px){
-  .section,.hero,footer{padding:80px 28px;}
-  .grid-2,.grid-3,.exec-grid,.add-cost-grid{grid-template-columns:1fr;}
+  .section,.hero{padding:64px 20px;}
+  footer{padding:44px 20px;}
+  nav{padding:0 16px;height:54px;}
   .nav-links{display:none;}
-  .hero{padding-top:110px;}
+  .grid-2,.grid-3,.exec-grid,.add-cost-grid{grid-template-columns:1fr;}
+  .hero{padding-top:88px;}
   .section-number{display:none;}
   .cta-row{flex-direction:column;}
+  .hero-meta{gap:24px;}
+  .summary-section{padding:28px 18px;}
+  .summary-total,.summary-onetime{padding:18px 16px;flex-direction:column;align-items:flex-start;gap:8px;}
+  .monthly-calc{flex-direction:column;gap:12px;padding:18px;}
+  .billing-toggle{flex-wrap:wrap;}
+  .option-tabs{width:100%;flex-direction:column;}
+  .option-tab{width:100%;text-align:left;padding:12px 18px;}
+  .hero-title{font-size:clamp(30px,8vw,52px);}
+  .plan-price{font-size:26px;}
+  .support-card .support-price{font-size:30px;}
+  .compare-table{font-size:12px;}
+  .compare-table th,.compare-table td{padding:10px 10px;}
+  .spec-grid{grid-template-columns:1fr 1fr;}
+  .user-count-control{flex-wrap:wrap;gap:10px;}
+  .nav-badge{display:none;}
+}
+
+@media(max-width:480px){
+  .section,.hero{padding:56px 14px;}
+  footer{padding:36px 14px;}
+  .hero{padding-top:76px;}
+  .summary-section{padding:20px 14px;}
+  .card{padding:20px 16px;}
+  .hero-meta{flex-direction:column;gap:18px;}
+  .step-row{gap:14px;}
 }
 
 /* ── PRINT / PDF ── */
@@ -609,7 +653,7 @@ footer{
         <div class="plan-divider"></div>
         <ul class="feature-list">
           <li><strong>Exchange Online</strong> — 50 GB mailbox per user</li>
-          <li>Custom domain email (you@gamebox.com)</li>
+          <li>Custom domain email (<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0f76607a4f686e626a6d6077216c6062">[email&#160;protected]</a>)</li>
           <li>Outlook on the web — browser-based mail</li>
           <li>Microsoft Teams — chat, calls, video meetings</li>
           <li>SharePoint &amp; OneDrive (1 TB cloud storage)</li>
@@ -637,7 +681,7 @@ footer{
         <div class="plan-divider"></div>
         <ul class="feature-list">
           <li><strong>Exchange Online</strong> — 50 GB mailbox per user</li>
-          <li>Custom domain email (you@gamebox.com)</li>
+          <li>Custom domain email (<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5a23352f1a3d3b373f38352274393537">[email&#160;protected]</a>)</li>
           <li>Outlook desktop app (Windows &amp; Mac)</li>
           <li><strong>Desktop Office apps</strong> — Word, Excel, PowerPoint, OneNote</li>
           <li>Microsoft Teams with recordings &amp; transcripts</li>
@@ -669,7 +713,7 @@ footer{
         <div class="plan-price" id="g-starter-price">$8.53<sub>/user</sub> <span class="per">/mo</span></div>
         <div class="plan-divider"></div>
         <ul class="feature-list">
-          <li>Secure custom email — you@gamebox.com</li>
+          <li>Secure custom email — <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9ae3f5efdafdfbf7fff8f5e2b4f9f5f7">[email&#160;protected]</a></li>
           <li>30 GB pooled storage per person</li>
           <li><strong>Gemini AI assistant</strong> in Gmail</li>
           <li>Chat with AI in the Gemini app</li>
@@ -968,7 +1012,7 @@ footer{
     </div>
 
     <h3 style="font-family:var(--font-display);font-weight:700;font-size:18px;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border);">One-Time Setup Costs <span style="font-size:12px;font-weight:400;color:var(--muted);margin-left:8px;">(estimates — negotiable)</span></h3>
-    <div class="summary-row">
+    <div class="summary-row" id="row-vps-dev">
       <span class="summary-label">Website Design &amp; Development (VPS path) <span style="font-size:11px;color:var(--accent3);margin-left:6px;">estimate</span></span>
       <span class="summary-value">$500</span>
     </div>
@@ -980,7 +1024,7 @@ footer{
       <span class="summary-label">VPS Server Provisioning &amp; Hardening</span>
       <span class="summary-value" style="color:var(--accent);">Included ↑</span>
     </div>
-    <div class="summary-row">
+    <div class="summary-row" id="row-ai-integration">
       <span class="summary-label">AI Web App Integration (non-VPS path) <span style="font-size:11px;color:var(--accent3);margin-left:6px;">estimate</span></span>
       <span class="summary-value">$250</span>
     </div>
@@ -1026,7 +1070,7 @@ footer{
         <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M4 12h8M8 3v7M5 7l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         Save Quote as PDF
       </button>
-      <a class="btn-secondary" href="mailto:mohamedabbasmerali@gmail.com">
+      <a class="btn-secondary" href="/cdn-cgi/l/email-protection#402d2f28212d252421222221332d2532212c2900272d21292c6e232f2d">
         <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M2 4l6 5 6-5M2 4h12v9H2V4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         Get in Touch
       </a>
@@ -1165,7 +1209,7 @@ footer{
     </div>
   </div>
   <div class="cta-row no-print" style="margin-top:48px;">
-    <a class="btn-primary" href="mailto:mohamedabbasmerali@gmail.com">
+    <a class="btn-primary" href="/cdn-cgi/l/email-protection#bbd6d4d3dad6dedfdad9d9dac8d6dec9dad7d2fbdcd6dad2d795d8d4d6">
       <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M2 4l6 5 6-5M2 4h12v9H2V4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       Get in Touch
     </a>
@@ -1183,7 +1227,7 @@ footer{
     <span class="footer-role">IT Support Specialist &amp; Solutions Architect</span>
   </div>
   <div class="footer-links">
-    <a href="mailto:mohamedabbasmerali@gmail.com">mohamedabbasmerali@gmail.com</a>
+    <a href="/cdn-cgi/l/email-protection#d9b4b6b1b8b4bcbdb8bbbbb8aab4bcabb8b5b099beb4b8b0b5f7bab6b4"><span class="__cf_email__" data-cfemail="523f3d3a333f373633303033213f3720333e3b12353f333b3e7c313d3f">[email&#160;protected]</span></a>
   </div>
   <div class="footer-stamp">
     <div style="margin-bottom:4px;"><span class="pulse"></span>Proposal active</div>
@@ -1191,7 +1235,7 @@ footer{
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ── STATE ──
 const state = {
   billing: 'monthly',
@@ -1316,6 +1360,11 @@ function setWebOption(opt) {
   document.querySelectorAll('#web-tabs .option-tab').forEach((t, i) => t.classList.toggle('active', i === (opt === 'a' ? 0 : 1)));
   document.getElementById('web-panel-a').classList.toggle('active', opt === 'a');
   document.getElementById('web-panel-b').classList.toggle('active', opt === 'b');
+  // Show/hide mutually exclusive estimate rows
+  const rowVps = document.getElementById('row-vps-dev');
+  const rowAi  = document.getElementById('row-ai-integration');
+  if (rowVps) rowVps.style.display = opt === 'b' ? '' : 'none';
+  if (rowAi)  rowAi.style.display  = opt === 'a' ? '' : 'none';
   updateSummary();
 }
 
@@ -1412,15 +1461,19 @@ function updateSummary() {
   if (state.supportPlan) {
     total += prices[state.supportPlan].monthly;
   }
-  document.getElementById('sum-total').textContent = total > 0 ? `$${total.toFixed(2)}/mo` : '$—';
+  document.getElementById('sum-total').textContent = total > 0 ? `$${total.toFixed(2)}` : '$—';
 }
 
-// ── NAV SCROLL ──
-const nav = document.querySelector('nav');
-window.addEventListener('scroll', () => {
-  nav.style.background = window.scrollY > 40 ? 'rgba(10,14,23,0.97)' : 'rgba(10,14,23,0.88)';
-  nav.style.boxShadow  = window.scrollY > 40 ? '0 4px 30px rgba(0,0,0,0.5)' : 'none';
-});
+// ── INIT ──
+// Default is Option A (AI builder): show AI row, hide VPS dev row
+(function initEstimateRows() {
+  const rowVps = document.getElementById('row-vps-dev');
+  const rowAi  = document.getElementById('row-ai-integration');
+  if (rowVps) rowVps.style.display = 'none';
+  if (rowAi)  rowAi.style.display  = '';
+})();
+
+updatePlanPrices();
 </script>
 </body>
 </html>
